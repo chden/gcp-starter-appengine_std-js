@@ -1,0 +1,27 @@
+# https://cloud.google.com/appengine/docs/standard/nodejs/config/appref
+
+runtime: nodejs12
+
+service: default
+
+basic_scaling:
+  max_instances: 1
+
+liveness_check:
+  path: "/check/liveness"
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+
+readiness_check:
+  path: "/check/readiness"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 60
+
+env_variables:
+  APP_ENV: prod
+  # APP_LOG_LEVEL: info
